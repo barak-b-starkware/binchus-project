@@ -1,8 +1,8 @@
 import sys
 import datetime as dt
-from binchus import CommandLineInterface
-from binchus import Thought
-from binchus.utils import Connection
+from . import CommandLineInterface
+from . import Thought
+from .utils import Connection
 
 cli = CommandLineInterface()
 
