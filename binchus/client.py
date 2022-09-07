@@ -3,6 +3,7 @@ import datetime as dt
 
 if __name__ == '__main__':
     __package__ = 'binchus'
+
 from . import CommandLineInterface
 from . import Thought
 from .utils import Connection
