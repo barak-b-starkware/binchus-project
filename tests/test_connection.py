@@ -3,7 +3,7 @@ import time
 
 import pytest
 
-from ..binchus.utils import Connection
+from binchus.utils import Connection
 
 
 _PORT = 1234

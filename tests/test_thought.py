@@ -3,7 +3,7 @@ import struct
 
 import pytest
 
-from ..binchus import Thought
+from binchus import Thought
 
 
 user_id = 1
