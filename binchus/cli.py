@@ -13,7 +13,6 @@ class CommandLineInterface:
         @functools.wraps(f)
         def wrapper(*args, **kwargs):
             return f(*args, **kwargs)
-        print(f.__name__, inspect.getfullargspec(f)[0])
         self.decorated_funcs[f.__name__] = (wrapper,
                                             inspect.getfullargspec(f)[0])
         return wrapper
@@ -33,14 +32,14 @@ class CommandLineInterface:
             if func_arg_names == self.decorated_funcs[func_name][1]:
                 self.decorated_funcs[func_name][0](*func_arg_values)
             else:
-                print(f'USAGE: \'{func_name}\' should be called \
-                        with the following key word parameters: \
-                        {*self.decorated_funcs[func_name][1], }')
-                return 1
+                print((f'USAGE: \'{func_name}\' should be called '
+                       f'with the following key word parameters: '
+                       f'{*self.decorated_funcs[func_name][1], }'))
+                return 0
         else:
-            print(f'USAGE: available functions are \
-                    {*self.decorated_funcs.keys(), }')
-            return 1
+            print((f'USAGE: available functions are '
+                   f'{*self.decorated_funcs.keys(), }'))
+            return 0
         return 0
 
 

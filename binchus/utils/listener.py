@@ -14,10 +14,10 @@ class Listener:
         self.s.bind((self.host, self.port))
 
     def __repr__(self):
-        return f'{self.__class__.__name__}(port={self.port}, \
-                host=\'{self.host}\', \
-                backlog={self.backlog}, \
-                reuseaddr={self.reuseaddr})'
+        return ((f'{self.__class__.__name__}(port={self.port}, '
+                 f'host=\'{self.host}\', '
+                 f' backlog={self.backlog}, '
+                 f'reuseaddr={self.reuseaddr}'))
 
     def start(self):
         self.s.listen(self.backlog)

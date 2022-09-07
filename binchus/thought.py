@@ -9,13 +9,13 @@ class Thought:
         self.thought = thought
 
     def __repr__(self):
-        return f'{self.__class__.__name__}(user_id={self.user_id!r}, \
-                                            timestamp={self.timestamp!r}, \
-                                            thought={self.thought!r})'
+        return (f'{self.__class__.__name__}(user_id={self.user_id!r}, '
+                                          f'timestamp={self.timestamp!r}, '
+                                          f'thought={self.thought!r})')
 
     def __str__(self):
-        return f'[{self.timestamp:%Y-%m-%d %H:%M:%S}] \
-                user {self.user_id}: {self.thought}'
+        return (f'[{self.timestamp:%Y-%m-%d %H:%M:%S}] '
+                f'user {self.user_id}: {self.thought}')
 
     def __eq__(self, other):
         if not isinstance(other, Thought):
