@@ -50,7 +50,7 @@ def test_eq(t):
 
 
 def test_serialize(t):
-    assert t.serialize() == datetime
+    assert t.serialize() == datetime.timestamp()
 
 
 def test_deserialize(t):
