@@ -26,7 +26,8 @@ class Thought:
 
     def serialize(self):
         encoded_thought = bytes(self.thought, "utf-8")
-        return struct.pack('<Q', int(self.timestamp.timestamp()))
+        return self.timestamp.timestamp()
+        # return struct.pack('<Q', int(self.timestamp.timestamp()))
         # return b"\x01\x00\x00\x00\x00\x00\x00\x00 \xd0m8\x00\x00\x00\x00\n\x00\x00\x00I'm hungry"
         # return struct.pack('<QQI{}s'.format(len(encoded_thought)),
         #                    int(self.user_id),
