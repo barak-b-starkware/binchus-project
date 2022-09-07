@@ -12,8 +12,6 @@ import pytest
 
 from binchus import CommandLineInterface
 
-if __name__ == '__main__':
-    __package__ = 'binchus'
 
 _SERVER_ADDRESS = '127.0.0.1', 5000
 _SERVER_BACKLOG = 1000

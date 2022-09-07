@@ -1,6 +1,9 @@
 import sys
 import threading
 from pathlib import Path
+
+sys.path.append('.')
+
 from binchus import CommandLineInterface
 from binchus import Thought
 from binchus.utils import Listener
