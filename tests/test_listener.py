@@ -3,7 +3,7 @@ import time
 
 import pytest
 
-from listener import Listener
+from ..binchus.utils import Listener
 
 
 _PORT = 1234
