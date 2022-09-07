@@ -25,7 +25,7 @@ class CommandLineInterface:
             if re.match(".+=.", cmd_arg) is None:
                 print('USAGE: arguments must be passed \
                         as key word parameters')
-                return 1
+                sys.exit(1)
             func_arg_names.append(cmd_arg.partition('=')[0])
             func_arg_values.append(cmd_arg.partition('=')[2])
         if func_name in self.decorated_funcs:
@@ -35,12 +35,12 @@ class CommandLineInterface:
                 print((f'USAGE: \'{func_name}\' should be called '
                        f'with the following key word parameters: '
                        f'{*self.decorated_funcs[func_name][1], }'))
-                return 0
+                sys.exit(1)
         else:
             print((f'USAGE: available functions are '
                    f'{*self.decorated_funcs.keys(), }'))
-            return 0
-        return 0
+            sys.exit(1)
+        sys.exit(0)
 
 
 # cli = CommandLineInterface()
