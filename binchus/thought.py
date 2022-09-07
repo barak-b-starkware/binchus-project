@@ -32,7 +32,9 @@ class Thought:
                            len(encoded_thought), encoded_thought)
 
     def deserialize(data):
-        user_id, timestamp, thought_len = struct.unpack('<QQI', data[:20])
+        user_id = struct.unpack('<Q', data[:8])[0]
+        timestamp = struct.unpack('<Q', data[8:16])[0]
+        thought_len = struct.unpack('<I', data[16:20])[0]
         if len(data) - thought_len != 20:
             raise Exception("Message length received doesn't match.")
         thought = struct.unpack('<{}s'.format(thought_len),
