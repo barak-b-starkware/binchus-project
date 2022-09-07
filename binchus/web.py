@@ -68,5 +68,5 @@ def run_webserver(address, data_dir):
         user_html = _USER_HTML.format(id=user_id, thoughts='\n'.join(thoughts))
         return 200, user_html
 
-    ip, port = address.split(":", 1)
+    ip, port = address
     website.run((ip, int(port)))

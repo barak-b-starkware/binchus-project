@@ -1,9 +1,10 @@
 import sys
 import threading
 from pathlib import Path
-from . import CommandLineInterface
-from .utils.listener import Listener
-from . import Thought
+from binchus import CommandLineInterface
+from binchus import Thought
+from binchus.utils import Listener
+
 
 cli = CommandLineInterface()
 

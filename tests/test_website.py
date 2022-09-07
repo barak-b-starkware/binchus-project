@@ -11,9 +11,10 @@ from binchus.website import Website
 
 _ADDRESS = '127.0.0.1', 8000
 _URL = f'http://{_ADDRESS[0]}:{_ADDRESS[1]}'
+_PROJECT_NAME = 'binchus'
 _ROOT = pathlib.Path(__file__).absolute().parent.parent
-_WEBSERVER_PATH = _ROOT / 'web.py'
-_DATA_DIR = _ROOT / 'data'
+_WEBSERVER_PATH = _ROOT / _PROJECT_NAME / 'web.py'
+_DATA_DIR = _ROOT / 'tests' / 'data'
 
 
 @pytest.fixture

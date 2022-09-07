@@ -1,8 +1,8 @@
 import sys
-import time
-from . import CommandLineInterface
-from . import Thought
-from .utils.connection import Connection
+import datetime as dt
+from binchus import CommandLineInterface
+from binchus import Thought
+from binchus.utils import Connection
 
 cli = CommandLineInterface()
 
@@ -10,10 +10,11 @@ cli = CommandLineInterface()
 @cli.command
 def upload_thought(address, user, thought):
     ip, port = address.split(":", 1)
-    encoded_thought = thought.encode('utf-8')
-    thought = Thought(user, time.time(), encoded_thought)
-    with Connection.connect((ip, int(port))) as connection:
-        connection.send(thought.serialize())
+    # encoded_thought = thought.encode('utf-8')
+    # t = Thought(user, time.time(), encoded_thought)
+    t = Thought(user, dt.datetime.now(), thought)
+    with Connection.connect(ip, int(port)) as connection:
+        connection.send(t.serialize())
     # msg = thought.serialize()
     # conn = socket.socket()
     # conn.connect((ip, int(port)))
