@@ -1,12 +1,11 @@
 import sys
 import datetime as dt
 
-if __name__ == '__main__':
-    __package__ = 'binchus'
+sys.path.append('.')
 
-from . import CommandLineInterface
-from . import Thought
-from .utils import Connection
+from binchus import CommandLineInterface
+from binchus import Thought
+from binchus.utils import Connection
 
 cli = CommandLineInterface()
 
