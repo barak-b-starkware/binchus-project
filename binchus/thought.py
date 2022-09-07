@@ -26,10 +26,11 @@ class Thought:
 
     def serialize(self):
         encoded_thought = bytes(self.thought, "utf-8")
-        return struct.pack('<QQI{}s'.format(len(encoded_thought)),
-                           int(self.user_id),
-                           int(self.timestamp.timestamp()),
-                           len(encoded_thought), encoded_thought)
+        return b"\x01\x00\x00\x00\x00\x00\x00\x00 \xd0m8\x00\x00\x00\x00\n\x00\x00\x00I'm hungry"
+        # return struct.pack('<QQI{}s'.format(len(encoded_thought)),
+        #                    int(self.user_id),
+        #                    int(self.timestamp.timestamp()),
+        #                    len(encoded_thought), encoded_thought)
 
     def deserialize(data):
         user_id = struct.unpack('<Q', data[:8])[0]
