@@ -3,8 +3,7 @@ from .thought import Thought  # noqa: F401
 from .server import run_server  # noqa: F401
 from .client import upload_thought  # noqa: F401
 from .web import run_webserver  # noqa: F401
-# from .utils import Connection
-# from .utils import Listener
+
 # __all__ = [CommandLineInterface,
 #            Thought,
 #            run_server,
