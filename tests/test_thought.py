@@ -50,7 +50,8 @@ def test_eq(t):
 
 
 def test_serialize(t):
-    assert t.serialize() == datetime.timestamp()
+    assert struct.pack('<Q', int(datetime.timestamp())) == serialized
+    assert t.serialize() == datetime.timestamp(), serialized
 
 
 def test_deserialize(t):
