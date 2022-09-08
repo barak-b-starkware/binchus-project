@@ -28,7 +28,7 @@ class Thought:
         encoded_thought = bytes(self.thought, "utf-8")
         return struct.pack('<QQI{}s'.format(len(encoded_thought)),
                            int(self.user_id),
-                           int((self.timestamp - dt.datetime(1970, 1, 1)) / dt.timedelta(seconds=1)),
+                           int(self.timestamp.timestamp()),
                            len(encoded_thought), encoded_thought)
 
     def deserialize(data):
@@ -39,4 +39,5 @@ class Thought:
             raise Exception("Message length received doesn't match.")
         thought = struct.unpack('<{}s'.format(thought_len),
                                 data[20:])[0].decode("utf-8")
-        return Thought(user_id, dt.datetime.fromtimestamp(timestamp), thought)
+        # return Thought(user_id, dt.datetime.fromtimestamp(timestamp), thought)
+        return Thought(user_id, dt.datetime.fromtimestamp(timestamp, tz=dt.timezone.utc), thought)
