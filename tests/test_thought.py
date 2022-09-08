@@ -50,7 +50,7 @@ def test_eq(t):
 
 
 def test_serialize(t):
-    assert struct.pack('<Q', int(datetime.timestamp())), struct.unpack('<QQI', b"\x01\x00\x00\x00\x00\x00\x00\x00 \xd0m8\x00\x00\x00\x00") == (b"\x01\x00\x00\x00\x00\x00\x00\x00 \xd0m8\x00\x00\x00\x00", 1, datetime, 10)
+    assert struct.pack('<Q', int(datetime.timestamp())), struct.unpack('<QQI', b"\x01\x00\x00\x00\x00\x00\x00\x00 \xd0m8\x00\x00\x00\x00") == (b"\x01\x00\x00\x00\x00\x00\x00\x00 \xd0m8\x00\x00\x00\x00", 1, datetime, 11)
     assert t.serialize() == datetime.timestamp(), serialized
 
 
