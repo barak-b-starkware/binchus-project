@@ -28,7 +28,7 @@ class Thought:
         encoded_thought = bytes(self.thought, "utf-8")
         return struct.pack('<QQI{}s'.format(len(encoded_thought)),
                            int(self.user_id),
-                           int(self.timestamp.timestamp()),
+                           int((self.timestamp - dt.datetime(1970, 1, 1)) / dt.timedelta(seconds=1)),
                            len(encoded_thought), encoded_thought)
 
     def deserialize(data):
