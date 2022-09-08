@@ -7,7 +7,7 @@ from binchus import Thought
 
 
 user_id = 1
-datetime = dt.datetime(2000, 1, 1, 12, 0)
+datetime = dt.datetime(2000, 1, 1, 12, 0, tzinfo=None)
 thought = "I'm hungry"
 serialized = b"\x01\x00\x00\x00\x00\x00\x00\x00 \xd0m8\x00\x00\x00\x00\n\x00\x00\x00I'm hungry"
 
