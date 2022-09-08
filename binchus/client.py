@@ -1,7 +1,7 @@
 import sys
 import datetime as dt
 
-sys.path.append('.')
+# sys.path.append('.')
 
 from binchus import CommandLineInterface
 from binchus import Thought
