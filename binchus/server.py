@@ -55,13 +55,13 @@ class Handler(threading.Thread):
 
 
 @cli.command
-def run_server(address, data):
+def run_server(address, data_dir):
     ip, port = address.split(":", 1)
     with Listener(port=int(port), host=ip) as listener:
         lock = threading.Lock()
         while True:
             client = listener.accept()
-            newthread = Handler(client, data, lock)
+            newthread = Handler(client, data_dir, lock)
             newthread.start()
     # listener = Listener(port=int(port), host=ip)                ###
     # server = socket.socket()

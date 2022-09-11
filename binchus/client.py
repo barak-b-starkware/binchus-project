@@ -11,11 +11,11 @@ cli = CommandLineInterface()
 
 
 @cli.command
-def upload_thought(address, user, thought):
+def upload_thought(address, user_id, thought):
     ip, port = address.split(":", 1)
     # encoded_thought = thought.encode('utf-8')
     # t = Thought(user, time.time(), encoded_thought)
-    t = Thought(user, dt.datetime.now(), thought)
+    t = Thought(user_id, dt.datetime.now(), thought)
     with Connection.connect(ip, int(port)) as connection:
         connection.send(t.serialize())
     # msg = thought.serialize()
