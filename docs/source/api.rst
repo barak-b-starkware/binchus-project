@@ -39,4 +39,7 @@ _______
     .. method:: serialize(self)
 
         Serializes the thought in the following way: user_id -> 8 bytes, timestamp -> 8 bytes, length in bytes of the thought -> 4 bytes, thought -> number of required bytes.
-        
+
+    .. method:: deserialize(self)
+
+        Deserializes the thought that given in bytes in the same way as it serializes it.
