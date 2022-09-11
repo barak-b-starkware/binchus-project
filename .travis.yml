@@ -4,7 +4,7 @@ python:
 install:
   - pip install -r requirements.txt
 script:
-  - curl https://keybase.io/codecovsecurity/pgp_keys.asc | gpg --no-default-keyring --keyring trustedkeys.gpg --import # One-time step
+  # - curl https://keybase.io/codecovsecurity/pgp_keys.asc | gpg --no-default-keyring --keyring trustedkeys.gpg --import # One-time step
   - curl -Os https://uploader.codecov.io/latest/linux/codecov
   - curl -Os https://uploader.codecov.io/latest/linux/codecov.SHA256SUM
   - curl -Os https://uploader.codecov.io/latest/linux/codecov.SHA256SUM.sig
@@ -13,5 +13,5 @@ script:
 
   - chmod +x codecov
   - ./codecov -t ${CODECOV_TOKEN}
-  
+
   - pytest -v
