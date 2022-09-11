@@ -104,7 +104,7 @@ def test_client():
         stdout, _ = process.communicate()
         assert b'usage' in stdout.lower()
         process = subprocess.Popen(
-            ['python', _CLIENT_PATH, 'upload_thought', f'address={host}:{port}', f'user=1', f"thought=I'm hungry"],
+            ['python', _CLIENT_PATH, 'upload_thought', f'address={host}:{port}', f'user_id=1', f"thought=I'm hungry"],
             stdout = subprocess.PIPE,
         )
         stdout, _ = process.communicate()
@@ -137,7 +137,7 @@ def test_server():
     stdout, _ = process.communicate()
     assert b'usage' in stdout.lower()
     process = subprocess.Popen(
-        ['python', _SERVER_PATH, 'run_server', f'address={host}:{port}', 'data=data/'],
+        ['python', _SERVER_PATH, 'run_server', f'address={host}:{port}', 'data_dir=data/'],
         stdout = subprocess.PIPE,
     )
     thread = threading.Thread(target=process.communicate)
